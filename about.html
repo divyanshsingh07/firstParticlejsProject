@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <link rel="stylesheet" href="demo/css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About & Contact</title>
+    <style>
+    
+/* General Reset */
+* {
+ 
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #1a1a1a;
+  
+
+}
+
+.container {
+    width: 80%;
+    height: 100vh;
+    display: flex;
+    flex-direction: row; /* Keep sections side by side */
+} 
+
+.section {
+    width: 100%; 
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    transition: transform 1s ease;
+}
+
+.about {
+   margin-top: 10px;
+    background: none;
+    color: rgb(254, 253, 253);
+    position: relative;
+    top: -100%; 
+    font-size: 15px;
+    font-family: cursive;
+    right: 7%;
+
+}
+.about-content p {
+  /* margin-top: 20px; */
+  color: rgb(254, 253, 253);
+  font-size: 15px;
+  font-family: cursive;
+  flex-wrap: wrap;
+}
+
+.contact {
+    background: none;
+    color: white;
+    position: relative;
+    bottom: -100%; 
+    font-size: 30px;
+    font-family: cursive;
+   
+    
+}
+.contact-info {
+  display: flex;
+  flex-direction: column;
+ 
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #e6dede;
+  font-size: 28px;
+  font-family: cursive;
+}
+
+.contact-item i {
+  margin-right: 10px;
+  font-size: 24px;
+  color: rgb(253, 253, 252);
+}
+
+.contact-item:hover {
+  color: #f31212; /* Change color on hover */
+}
+
+
+/* Animations for sections sliding in vertically */
+.show-about {
+    transform: translateY(100%);
+}
+
+.show-contact {
+    transform: translateY(-100%);
+}
+
+
+.vertical-line {
+  border-left: 1px solid white; 
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.profile-pic {
+ 
+  height: 250px;
+  width: 200px;
+  border-radius: 74% 26% 75% 25% / 34% 81% 19% 66% ; 
+  object-fit: cover; /* Ensures the image covers the entire box */
+  object-position: top; /* Positions the image to start from the top */
+  border: 1px solid #fcfafa;
+}
+.contact-heading {
+  position: relative;
+  display: inline-block;
+  padding: 5px 10px;
+  color: white;
+  overflow: hidden; /* Ensures the pseudo-element is contained */
+}
+
+.contact-heading::after {
+  content: '';
+  position: absolute;
+  left: -100%; /* Start the line off-screen to the left */
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  background: #f31212; /* Line color */
+  transition: left 0.2s ease; /* Animate the line's position */
+}
+
+.contact-heading:hover::after {
+  left: 0; /* Move the line into view on hover */
+}
+
+
+.map-container h2{
+    text-align: center;
+}
+
+.map-container iframe {
+  width: 400px; /* Make the map responsive */
+  height: 400px; /* Set the height of the map */
+  border: 0; /* Remove border */
+}
+.navbar {
+ padding: 10px 10px;
+ position: fixed;
+ left: 0;
+ top: 20px;
+ width: 20%;
+ z-index: 1000;
+ 
+}
+.skills-container {
+  margin-top: 40px;
+  padding-left: 5px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.skills-container img {
+  width: 60px;
+  height: 70px;
+  border-radius:51% 49% 46% 54% / 24% 20% 80% 76% ;
+  object-fit: cover;
+  border: 1px solid #333;
+  transition: transform 0.3s ease;
+}
+
+.skills-container img:hover {
+  transform: scale(1.1);
+}
+.SKILLS{
+  margin-top: 30px;
+}
+/* Remove initial offsets for smoother animation */
+.about, .contact {
+    position: relative;
+    transform: translateY(0); /* Ensure no initial movement */
+    transition: transform 1s ease; /* Smooth transition */
+}
+
+.show-about {
+    transform: translateY(100%); /* Slide the about section down on load */
+}
+
+.show-contact {
+    transform: translateY(-100%); /* Slide the contact section up on load */
+}
+
+@media (max-width: 768px) {
+
+  .skills-container {
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Two columns with equal width */
+    gap: 10px; 
+    text-align: center;
+  }
+
+  .skills-container img {
+    width: 30px;
+    height: 40px;
+  }
+
+  .map-container iframe {
+    width: 200px; 
+    height: 200px; 
+    border: 0;
+    margin-left: 70px;
+    padding-top: 30px;
+  }
+
+  .about {
+    margin-right: 70px;
+    background: none;
+    color: rgb(254, 253, 253);
+    /* position: relative; */
+    top: -100%; 
+    font-size: 10px;
+    font-family: cursive;
+    width: 100%;
+  }
+
+  .navbar {
+    width: 50%; /* Increase width to 80% */
+    top: 15px; /* Further reduce the top margin */
+    padding: 5px; /* Adjust padding for smaller screens */
+  }
+
+  .contact {
+    background: none;
+    color: white;
+    position: relative;
+    bottom: -100%; 
+    font-size: 15px;
+    font-family: cursive;
+    right: 20%;
+
+  }
+
+  .contact-item {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #e6dede;
+    font-size: 18px;
+    font-family: cursive;
+    margin-left: 70px;
+  }
+
+  .contact-item i {
+    margin-right: 10px;
+    font-size: 15px;
+    color: rgb(253, 253, 252);
+  }
+
+  .profile-pic {
+    height: 100px;
+    width: 80px;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <ul class="nav-links">
+          <li><a href="index.html"><i class="fa-solid fa-house-laptop" style="color: #ffffff;"></i> Home</a></li>
+          <li><a href="#projects"><i class="fa-solid fa-laptop" style="color: #ffffff;"></i> Projects</a></li>
+        </ul>
+      </nav>
+      <a href="index.html">
+        <img src="demo/ds-logo.png" alt="Logo" class="logo">
+    </a>
+  
+    
+<!-- Main Container -->
+<div class="container">
+    <div id="particles-js"></div>
+    <!-- About Section (Left Half) -->
+    <section id="about" class="section about">
+        <img src="demo/image.png" alt="Profile Picture" class="profile-pic"
+        <p>I'm Divyansh Singh, a passionate full stack developer specializing in creating seamless web experiences. I build user-friendly interfaces with HTML, CSS, JavaScript, and React, and develop robust back-end solutions using Node.js and Express. Currently pursuing my Bachelor's in Computer Science at VIT AP University, I am dedicated to continuously learning and pushing the boundaries of modern web development. Let's create something amazing together!"</p>
+        <h2 class="SKILLS">SKILLS</h2>
+        <div class="skills-container">
+          
+          <div class="skill">
+            <img src="demo/html.png" alt="HTML">
+            <p>HTML</p>
+          </div>
+          <div class="skill">
+            <img src="demo/css.png" alt="CSS">
+            <p>CSS</p>
+          </div>
+          <div class="skill">
+            <img src="demo/js.png" alt="JavaScript">
+            <p>JavaScript</p>
+          </div>
+          <div class="skill">
+            <img src="demo/java.png" alt="Java">
+            <p>Java</p>
+          </div>
+          <div class="skill">
+            <img src="demo/python.png" alt="Python">
+            <p>Python</p>
+          </div>
+          <div class="skill">
+            <img src="demo/git.png" alt="Git">
+            <p>Git</p>
+          </div>
+          <div class="skill">
+            <img src="demo/mongo.png" alt="MongoDB">
+            <p>MongoDB</p>
+          </div>
+          <div class="skill">
+            <img src="demo/node.png" alt="Node.js">
+            <p>Node.js</p>
+          </div>
+        </div>
+    </section>
+<div class="vertical-line"></div>
+    <!-- Contact Section (Right Half) -->
+    <section id="contact" class="section contact">
+        <h2 class="contact-heading">Get in Touch</h2>
+        <div class="contact-info">
+          <a href="mailto:divyanshsingharsh@gmail.com" class="contact-item">
+            <i class="fas fa-envelope"></i> divyanshsingharsh@gmail.com
+          </a>
+          <a href="https://wa.me/9517593294" class="contact-item" target="_blank">
+            <i class="fab fa-whatsapp"></i> WhatsApp Me
+          </a>
+         
+        </div>
+        <div class="map-container">
+           
+          <iframe 
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3825.574776290212!2d80.49662157525734!3d16.49705538424613!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a35f27d40f21c55%3A0x1490eacd54859850!2sVIT-AP%20University!5e0!3m2!1sen!2sin!4v1727560470123!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" >
+            width="600" 
+            height="450" 
+            style="border:0;" 
+            allowfullscreen="" 
+            loading="lazy">
+          </iframe>
+          <h2>Location<i class="fa-solid fa-location-dot" style="color: #ffffff;"></i></h2>
+        </div>
+        
+      </section>
+      
+      
+    
+</div>
+
+<script>
+ // Animate the sections sliding in when the page loads
+window.addEventListener('load', function() {
+    let aboutSection = document.getElementById('about');
+    let contactSection = document.getElementById('contact');
+
+    // Add class to start the animation
+    aboutSection.classList.add('show-about');
+    contactSection.classList.add('show-contact');
+});
+
+</script>
+<!-- scripts -->
+<script src="particles.js"></script>
+<script src="demo/js/app.js"></script>
+
+<!-- stats.js -->
+<script src="demo/js/lib/stats.js"></script>
+
+<script>
+  var count_particles, stats, update;
+  stats = new Stats;
+  stats.setMode(0);
+  stats.domElement.style.position = 'absolute';
+  stats.domElement.style.left = '0px';
+  stats.domElement.style.top = '0px';
+  document.body.appendChild(stats.domElement);
+  count_particles = document.querySelector('.js-count-particles');
+  update = function() {
+    stats.begin();
+    stats.end();
+    if (window.pJSDom[0].pJS.particles && window.pJSDom[0].pJS.particles.array) {
+      count_particles.innerText = window.pJSDom[0].pJS.particles.array.length;
+    }
+    requestAnimationFrame(update);
+  };
+  requestAnimationFrame(update);
+
+  // Handle "About me" button click and animate sections
+  document.getElementById('aboutButton').addEventListener('click', function() {
+    document.getElementById('about').classList.add('show-about');
+    document.getElementById('contact').classList.add('show-contact');
+  });
+</script>
+</body>
+</html>

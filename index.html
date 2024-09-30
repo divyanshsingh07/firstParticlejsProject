@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>particles.js</title>
+  <meta name="description" content="particles.js is a lightweight JavaScript library for creating particles.">
+  <meta name="author" content="Vincent Garreau" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+  <!-- Font Awesome for Social Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+  <!-- Link to external CSS -->
+  <link rel="stylesheet" href="demo/css/style.css">
+
+</head>
+<body>
+
+  <!-- particles.js container -->
+  <div id="particles-js"></div>
+  <img src="demo/ds-logo.png" alt="Logo" class="logo">
+
+  <nav class="navbar">
+    <ul class="nav-links">
+      <li><a href="#home"><i class="fa-solid fa-house-laptop" style="color: #ffffff;"></i>Home</a></li>
+      <li><a href="#projects"><i class="fa-solid fa-laptop" style="color: #ffffff;"></i> Projects</a></li>  
+    </ul>
+  </nav>
+  <section id="home">
+  <!-- Centered text box -->
+  <div class="centered-box">
+    <h1>Divyansh Singh</h1>
+    <span><p>I'm a full stack developer passionate about creating seamless, efficient web solutions.</p></span>
+
+    <!-- Social media icons -->
+    <div class="social-icons">
+      <a href="https://github.com/divyanshsingh07" target="_blank"><i class="fab fa-github"></i></a>
+      <a href="https://www.linkedin.com/in/divyansh-singh-a33976255/" target="_blank"><i class="fab fa-linkedin"></i></a>
+      <a href="https://x.com/Arshthakur07" target="_blank"><i class="fab fa-twitter"></i></a>
+    </div>
+
+  <!-- About and Contact Sections -->
+  
+    <!-- About Me Section -->
+    <div>
+      <a href="about.html">
+          <button class="styled-button" id="aboutButton"><span>About Me</span>  <i class="fa-solid fa-arrow-right" style="color: #ffffff;"></i></button>
+      </a>
+    </div>
+  </section>
+  <!-- scripts -->
+  <script src="particles.js"></script>
+  <script src="demo/js/app.js"></script>
+
+  <!-- stats.js -->
+  <script src="demo/js/lib/stats.js"></script>
+
+  <script>
+    var count_particles, stats, update;
+    stats = new Stats;
+    stats.setMode(0);
+    stats.domElement.style.position = 'absolute';
+    stats.domElement.style.left = '0px';
+    stats.domElement.style.top = '0px';
+    document.body.appendChild(stats.domElement);
+    count_particles = document.querySelector('.js-count-particles');
+    update = function() {
+      stats.begin();
+      stats.end();
+      if (window.pJSDom[0].pJS.particles && window.pJSDom[0].pJS.particles.array) {
+        count_particles.innerText = window.pJSDom[0].pJS.particles.array.length;
+      }
+      requestAnimationFrame(update);
+    };
+    requestAnimationFrame(update);
+
+    // Handle "About me" button click and animate sections
+    document.getElementById('aboutButton').addEventListener('click', function() {
+      document.getElementById('about').classList.add('show-about');
+      document.getElementById('contact').classList.add('show-contact');
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,408 @@
+/* =============================================================================
+   HTML5 CSS Reset Minified - Eric Meyer
+   ========================================================================== */
+
+html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address,cite,code,del,dfn,em,img,ins,kbd,q,samp,small,strong,sub,sup,var,b,i,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,figcaption,figure,footer,header,hgroup,menu,nav,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}
+body{line-height:1}
+article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}
+nav ul{list-style:none}
+blockquote,q{quotes:none}
+blockquote:before,blockquote:after,q:before,q:after{content:none}
+a{margin:0;padding:0;font-size:100%;vertical-align:baseline;background:transparent;text-decoration:none}
+mark{background-color:#ff9;color:#000;font-style:italic;font-weight:bold}
+del{text-decoration:line-through}
+abbr[title],dfn[title]{border-bottom:1px dotted;cursor:help}
+table{border-collapse:collapse;border-spacing:0}
+hr{display:block;height:1px;border:0;border-top:1px solid #ccc;margin:1em 0;padding:0}
+input,select{vertical-align:middle}
+li{list-style:none}
+
+
+/* =============================================================================
+   My CSS
+   ========================================================================== */
+
+/* ---- base ---- */
+
+html,body{ 
+	width:100%;
+	height:100%;
+	background:#111;
+  
+}
+
+html{
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+body{
+  font:normal 75% Arial, Helvetica, sans-serif;
+}
+
+/* Particles container */
+#particles-js {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+body {
+  margin: 0;
+  overflow: hidden;
+  position: relative;
+  height: 100vh; /* Full height of the viewport */
+}
+
+/* Centered text box */
+.centered-box {
+  font-size:;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Centering technique */
+  background: blurr; /* Light background with opacity */
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  z-index: 1; /* Ensure it appears above particles */
+}
+
+.centered-box h1  {
+  margin: 0;
+  font-family:cursive;
+  font-size: 50px;
+  color: #ffff; /* Dark text color */
+}
+.centered-box p{
+  margin: 0;
+  font-size: 24px;
+  color: #ffff; 
+  font-family:cursive;
+}
+
+
+/* Social media icons */
+.social-icons {
+  margin-top: 20px;
+}
+
+.social-icons a {
+  margin: 0 10px;
+  font-size: 24px;
+  color: #f9f7f7; /* Social icon color */
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+  color: #ff0000; /* Color on hover */
+}
+
+/* Logo style */
+.logo {
+  position: absolute;
+  top:-5px;
+  right: 20px; 
+  width: 80px; /* Adjust the size as necessary */
+  z-index: 10; /* Ensure it appears above the particles */
+}
+
+
+.navbar {
+ 
+  padding: 10px 10px;
+  position: fixed;
+  top: 20px;
+
+  width: 20%;
+  z-index: 1000;
+  
+}
+
+.nav-links {
+  font-size: large;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: space-around;
+}
+
+.nav-links li {
+  margin-right: 10px;
+}
+
+.nav-links li {
+  margin-right: 10px;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  position: relative; /* Needed for the pseudo-element */
+  transition: color 0.3s;
+  font-family:cursive;
+}
+
+.nav-links a::after {
+  content: ""; /* Create a pseudo-element */
+  display: block; /* Make it a block element */
+  height: 2px; /* Height of the underline */
+  width: 0; /* Start with no width */
+  background: #f31212; /* Color of the underline */
+  transition: width 0.3s; /* Smooth transition for width */
+  position: absolute; /* Position it absolutely */
+  bottom: -5px; /* Position it below the text */
+  left: 50%; /* Center it under the text */
+  transform: translateX(-50%); /* Center the underline */
+}
+
+.nav-links a:hover {
+  color: #f31212; /* Change color on hover */
+}
+
+.nav-links a:hover::after {
+  width: 100%; /* Expand the underline to full width on hover */
+}
+
+.nav-links i {
+  margin-right: 5px;
+}
+
+.contact-icon {
+  display: block;
+  position:fixed;
+  top:20px;
+  right: 20px; 
+}
+
+.contact-icon a {
+  color: white;
+  font-size: 1.5em;
+  transition: color 0.3s;
+  padding: 10px;
+  position: relative; /* Needed for the pseudo-element */
+}
+
+.contact-icon a::after {
+  content: "";
+  display: block;
+  height: 2px;
+  width: 0;
+  background: #f33412; /* Red color for underline */
+  transition: width 0.3s;
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.contact-icon i {
+  padding-right: 10px;
+}
+
+.contact-icon a:hover {
+  color: #f33412; /* Change icon color on hover */
+}
+
+.contact-icon a:hover::after {
+  width: 100%; /* Expand the underline on hover */
+}
+.styled-button {
+  height: 45px;
+  
+
+  background: none;
+  color: white; /* Text color */
+  border: none; /* No border */
+  border-radius: 5px; /* Rounded corners */
+  font-size: 20px; /* Font size */
+  cursor: pointer;
+  background-color: #f31212;
+  margin-top: 10px;
+  text-align: center;
+  transition: background-color 0.3s, transform 0.2s;
+
+  /* New properties for centering the text */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 20px; /* Adjust padding as needed */
+}
+
+
+.styled-button i {
+ 
+  margin:10px 5px 0 10px  ; /* Space between text and icon */
+  transition: transform 0.3s ease;
+}
+
+
+.styled-button:hover i {
+  transform: translateX(5px); /* Move the arrow to the right on hover */
+}
+
+.styled-button:active {
+  transform: scale(0.95); /* Slightly shrink the button when clicked */
+}
+
+
+
+.container {
+  width: 80%;
+  height: 80vh;
+  display: flex; /* Set container to display its children side by side */
+  flex-direction: row;
+}
+
+.section {
+  width: 50%; /* Each section takes up half the width */
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  transition: transform 1s ease;
+  position: relative;
+}
+
+.about {
+  background-color: #f0f0f0;
+  color: black;
+  top: -100%; /* Start hidden off the top */
+}
+
+.contact {
+  background-color: #2c3e50;
+  color: white;
+  bottom: -100%; /* Start hidden off the bottom */
+}
+
+h2 {
+  margin-bottom: 20px;
+}
+
+p, form {
+  margin: 0 20px;
+  text-align: center;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+}
+
+input, textarea {
+  margin-bottom: 10px;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+button {
+  padding: 10px;
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #c0392b;
+}
+
+/* Animations for sections sliding in from top and bottom */
+.show-about {
+  transform: translateY(100%); /* Slide the about section down */
+}
+
+.show-contact {
+  transform: translateY(-100%); /* Slide the contact section up */
+}
+
+
+/* ---- stats.js ---- */
+
+.count-particles{
+  background: #000022;
+  position: absolute;
+  top: 48px;
+  left: 0;
+  width: 80px;
+  color: #13E8E9;
+  font-size: .8em;
+  text-align: left;
+  text-indent: 4px;
+  line-height: 14px;
+  padding-bottom: 2px;
+  font-family: Helvetica, Arial, sans-serif;
+  font-weight: bold;
+}
+
+
+
+#stats,
+.count-particles{
+  -webkit-user-select: none;
+  margin-top: 5px;
+  margin-left: 5px;
+}
+
+#stats{
+  border-radius: 3px 3px 0 0;
+  overflow: hidden;
+}
+
+.count-particles{
+  border-radius: 0 0 3px 3px;
+}
+
+
+/* ---- particles.js container ---- */
+
+#particles-js{
+  width: 100%;
+  height: 100%;
+  background-color: #000000;
+  background-image: url('');
+  background-size: cover;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media (max-width: 768px) {
+  .navbar {
+    width: 50%; 
+    top: 10px;
+  }
+}
+
+/* For very small screens (e.g., mobile phones) */
+@media (max-width: 480px) {
+  .navbar {
+    width: 50%; /* Increase width to 80% */
+    top: 15px; /* Further reduce the top margin */
+    padding: 5px; /* Adjust padding for smaller screens */
+  }
+}
